@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+        
+            <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
+        
+        </div>
+
+
+        <div class ="row">
+            <div class = "col-med-12">
+        
+                <h2>Latest Mars News:</h2>
+                <h3>{{mars.news_title}}:</h3>
+                <p>{{mars.news_paragraph}}</p>
+            </div>
+        </div>
+
+        <div class ="row">
+             
+            <div class = "col-md-8">
+                <h3>Featured Mars Image</h3>
+                <img src="{{mars.featured_image_url}}" >    
+
+            </div>
+            <div class = "col-md-4">
+                <table class="table table-bordered table-hover table-condensed">
+                    {{mars.mars_facts}}
+                </table>
+            </div>
+        </div>
+
+        <div class ="row">
+            <div class = "col-med-12">
+                <h3>Mars Hemisperes</h3>
+            </div>
+
+            {% for image in mars.hemi_list }
+                <div class = "col-sm-6 col-med-3">
+                    <a href="#" class="thumbnail">
+                        <img src = "{{image.img_url}}" >
+                        <h4>{{image.title}}</h4>
+                    </a>
+
+                </div>
+
+        
+
+    </div>
+    
+  </body>
+  
+  </html>
+  
